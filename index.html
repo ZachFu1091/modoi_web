@@ -4,11 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>modoi — your proactive Mac companion</title>
-<meta name="description" content="modoi learns how you work and keeps you on track, proactively. A patient, low-friction companion that grows into you, right on your Mac." />
+<meta name="description" content="modoi learns your behavior, nudges before you ask, and streamlines how you work. The more you train it, the more it works for you." />
 
-<!-- Open Graph -->
 <meta property="og:title" content="modoi — your proactive Mac companion" />
-<meta property="og:description" content="modoi learns how you work and keeps you on track, proactively." />
+<meta property="og:description" content="modoi learns your behavior and works for you, proactively." />
 <meta property="og:type" content="website" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,25 +16,19 @@
 
 <style>
   :root {
-    --bg: #0b0b0d;
-    --cream: #f3efe6;
-    --muted: rgba(243, 239, 230, 0.72);
-    --faint: rgba(243, 239, 230, 0.5);
+    --ink: #241d26;
+    --muted: rgba(36, 29, 38, 0.66);
+    --faint: rgba(36, 29, 38, 0.45);
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html, body { height: 100%; }
-
   body {
-    background: var(--bg);
-    color: var(--cream);
+    color: var(--ink);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
-  /* ---------- Hero ---------- */
   .hero {
     position: relative;
     min-height: 100vh;
@@ -44,40 +37,28 @@
     isolation: isolate;
   }
 
-  /* Dark cosmic / sand background built with layered gradients + grain */
+  /* Hero image #7 — pink & white paint */
   .hero::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: -2;
-    background:
-      radial-gradient(120% 90% at 78% 12%, rgba(120,120,130,0.16) 0%, rgba(0,0,0,0) 42%),
-      radial-gradient(140% 120% at 15% 95%, rgba(90,95,110,0.12) 0%, rgba(0,0,0,0) 50%),
-      linear-gradient(135deg, #111116 0%, #0a0a0c 45%, #060607 100%);
+    background-image: url("https://images.unsplash.com/photo-1563305145-b64e0c2184aa?q=90&auto=format&fit=crop&w=2400");
+    background-size: cover;
+    background-position: center;
   }
 
-  /* Diagonal light streak, like the dune ridge */
+  /* Soft light scrim to lift text off the paint */
   .hero::after {
     content: "";
     position: absolute;
     inset: 0;
-    z-index: -2;
-    background:
-      linear-gradient(118deg, transparent 38%, rgba(200,200,210,0.05) 50%, transparent 62%);
-    mix-blend-mode: screen;
-  }
-
-  /* Fine film grain */
-  .grain {
-    position: absolute;
-    inset: 0;
     z-index: -1;
-    opacity: 0.5;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    background:
+      radial-gradient(60% 45% at 50% 52%, rgba(255,255,255,0.66) 0%, rgba(255,255,255,0) 70%),
+      linear-gradient(180deg, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.05) 30%, rgba(255,255,255,0.10) 100%);
   }
 
-  /* ---------- Nav ---------- */
   nav {
     display: flex;
     align-items: center;
@@ -86,32 +67,25 @@
     position: relative;
     z-index: 2;
   }
-
   .logo {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 30px;
     letter-spacing: 0.5px;
-    color: var(--cream);
+    color: var(--ink);
     text-decoration: none;
   }
-
-  .nav-links {
-    display: flex;
-    gap: 34px;
-  }
-
+  .nav-links { display: flex; gap: 34px; }
   .nav-links a {
-    color: var(--cream);
+    color: var(--ink);
     text-decoration: none;
     font-size: 15px;
     letter-spacing: 0.2px;
-    opacity: 0.9;
+    opacity: 0.85;
     transition: opacity 0.2s ease;
   }
-  .nav-links a:hover { opacity: 0.6; }
+  .nav-links a:hover { opacity: 0.55; }
 
-  /* ---------- Center content ---------- */
   .hero-body {
     flex: 1;
     display: flex;
@@ -134,53 +108,27 @@
   }
 
   .subline {
-    margin-top: 42px;
+    margin-top: 34px;
     font-size: clamp(0.95rem, 1.5vw, 1.15rem);
     line-height: 1.6;
     color: var(--muted);
-    max-width: 42ch;
+    max-width: 46ch;
   }
+  .subline .drop { display: block; margin-top: 6px; color: var(--faint); }
 
-  .subline .drop {
-    display: block;
-    margin-top: 6px;
-    color: var(--faint);
-  }
-
-  .cta {
-    margin-top: 46px;
-    display: inline-flex;
-    gap: 16px;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
+  .cta { margin-top: 44px; }
   .btn {
     font-size: 15px;
     letter-spacing: 0.2px;
-    padding: 13px 26px;
+    padding: 13px 30px;
     border-radius: 2px;
     text-decoration: none;
-    transition: all 0.2s ease;
+    background: var(--ink);
+    color: #fff;
+    transition: opacity 0.2s ease;
+    display: inline-block;
   }
-  .btn-primary {
-    background: var(--cream);
-    color: #0b0b0d;
-  }
-  .btn-primary:hover { background: #fff; }
-  .btn-ghost {
-    color: var(--cream);
-    border: 1px solid rgba(243,239,230,0.35);
-  }
-  .btn-ghost:hover { border-color: rgba(243,239,230,0.7); }
-
-  .meta {
-    margin-top: 20px;
-    font-size: 12.5px;
-    letter-spacing: 0.3px;
-    color: var(--faint);
-  }
+  .btn:hover { opacity: 0.85; }
 
   @media (max-width: 640px) {
     nav { padding: 22px 22px; }
@@ -192,8 +140,6 @@
 </head>
 <body>
   <section class="hero">
-    <div class="grain"></div>
-
     <nav>
       <a href="#" class="logo">modoi</a>
       <div class="nav-links">
@@ -206,12 +152,11 @@
     <div class="hero-body">
       <h1>your mac, now a companion</h1>
       <p class="subline">
-        modoi learns how you work and keeps you on track.
-        <span class="drop">proactively</span>
+        modoi learns your behavior and works before you ask.
+        <span class="drop">the more you train it, the more it works for you</span>
       </p>
-
       <div class="cta">
-        <a href="#" class="btn btn-primary">TBD</a>
+        <a href="#" class="btn">TBD</a>
       </div>
     </div>
   </section>
